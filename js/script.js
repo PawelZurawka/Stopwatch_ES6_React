@@ -63,7 +63,7 @@ class App extends React.Component {
 
   start() {
     if (!this.state.running) {
-      this.setState({ running: true });
+      this.setState({ running: true, resetDisabled: true });
       this.state.watch = setInterval(() => this.step(), 10);
     }
   }
@@ -94,7 +94,7 @@ class App extends React.Component {
 
   stop() {
     if (this.state.running) {
-      this.setState({ running: false });
+      this.setState({ running: false, resetDisabled: false });
       clearInterval(this.state.watch);
     }
   }
@@ -116,7 +116,12 @@ class App extends React.Component {
           <button className='button' id='lap' onClick={this.lap.bind(this)}>
             Lap
           </button>
-          <button className='button' id='reset' onClick={this.reset.bind(this)}>
+          <button
+            disabled={this.state.resetDisabled}
+            className='button'
+            id='reset'
+            onClick={this.reset.bind(this)}
+          >
             Reset
           </button>
         </nav>
