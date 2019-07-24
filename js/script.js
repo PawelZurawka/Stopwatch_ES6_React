@@ -96,8 +96,11 @@ class App extends React.Component {
     if (this.state.running) {
       this.setState({ running: false });
       clearInterval(this.state.watch);
-      this.result();
     }
+  }
+
+  lap() {
+    this.result();
   }
 
   render() {
@@ -109,6 +112,9 @@ class App extends React.Component {
           </button>
           <button className='button' id='stop' onClick={this.stop.bind(this)}>
             Stop
+          </button>
+          <button className='button' id='lap' onClick={this.lap.bind(this)}>
+            Lap
           </button>
           <button className='button' id='reset' onClick={this.reset.bind(this)}>
             Reset

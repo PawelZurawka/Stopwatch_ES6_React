@@ -95,8 +95,11 @@ class App extends React.Component {
         running: false
       });
       clearInterval(this.state.watch);
-      this.result();
     }
+  }
+
+  lap() {
+    this.result();
   }
 
   render() {
@@ -113,6 +116,10 @@ class App extends React.Component {
       id: "stop",
       onClick: this.stop.bind(this)
     }, "Stop"), React.createElement("button", {
+      className: "button",
+      id: "lap",
+      onClick: this.lap.bind(this)
+    }, "Lap"), React.createElement("button", {
       className: "button",
       id: "reset",
       onClick: this.reset.bind(this)
